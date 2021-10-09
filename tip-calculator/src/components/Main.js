@@ -2,17 +2,18 @@ import React from "react";
 import styled from "styled-components";
 
 //Components
-import Bill from './Bill'
+import InputField from './InputField'
 import Tips from "./Tips";
 
 const Main = () => {
 
     return (
-        <Wrapper>
+        <Wrapper> 
             <Calculator>
                 <div>
-                 <Bill/>
+                 <InputField label="Bill" placeholder="$"/>
                  <Tips/>
+                 <InputField label="Number of People?" placeholder="#"/>
                 </div>
                 <div>
 
@@ -41,5 +42,5 @@ const Calculator = styled.div`
 
     display: grid;
     grid-template-columns: 1.3fr 1fr;
-
+    align-items: center;
 `;

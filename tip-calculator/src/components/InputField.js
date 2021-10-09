@@ -1,19 +1,19 @@
 import React from "react";
 import styled from "styled-components";
 
-const Bill = () => {
+const InputField = ({ label, placeholder }) => {
 
     return (
         <Wrapper>
             <Content>
-                <p>Bill</p>
-                <input placeholder="$"/>
+                <p>{label}</p>
+                <input placeholder={placeholder}/>
             </Content>
         </Wrapper>
     )
 }
 
-export default Bill;
+export default InputField;
 
 const Wrapper = styled.div``;
 
@@ -33,7 +33,7 @@ const Content = styled.div`
     input {
         background-color: #E3E3E3;
         border: none;
-        width: 90%;
+        width: 100%;
         height: 40px;
         border-radius: 10px;
         font-size: 1.5rem;
