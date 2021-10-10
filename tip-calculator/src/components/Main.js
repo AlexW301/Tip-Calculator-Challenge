@@ -1,4 +1,5 @@
 import React from "react";
+import { useState, useEffect } from 'react';
 import styled from "styled-components";
 
 //Components
@@ -7,18 +8,19 @@ import Tips from "./Tips";
 import Results from "./Results";
 
 const Main = () => {
+    const [tipAmount, setTipAmount] = useState('0.00');
 
     return (
         <Wrapper> 
             <Calculator>
                 <Section1>
-                 <InputField label="Bill" placeholder="$"/>
+                 <InputField label="Bill" placeholder="0"/>
                  <Tips/>
-                 <InputField label="Number of People?" placeholder="#"/>
+                 <InputField label="Number of People?" placeholder="0"/>
                 </Section1>
 
                 <Section2>
-                    <Results/>
+                    <Results tipAmount={tipAmount}/>
                 </Section2>
             </Calculator>
         </Wrapper>

@@ -13,7 +13,7 @@ const Tips = () => {
                     <Tip>15%</Tip>
                     <Tip>25%</Tip>
                     <Tip>50%</Tip>
-                    <Tip>2%</Tip>
+                    <input placeholder="Custom"/>
                 </TipsGrid>
             </Content>
         </Wrapper>
@@ -29,6 +29,23 @@ const Content = styled.div`
     p {
         color: var(--medGrey);
         font-weight: 600;
+    }
+
+    input {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        border: none;
+        background-color: #F4FAFA;
+        direction: rtl;
+        text-align: right;
+        font-size: 1.7rem;
+        color: #56878a;
+
+        ::placeholder {
+            text-align: center;
+            color: #56878a;
+        }
     }
 `;
 
