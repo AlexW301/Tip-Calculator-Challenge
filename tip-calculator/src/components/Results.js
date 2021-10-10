@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const Results = ({ tipAmount }) => {
+const Results = ({ tipAmount, totalAmount, setBillAmount, setTipAmount }) => {
 
     return (
         <Wrapper>
@@ -18,9 +18,12 @@ const Results = ({ tipAmount }) => {
                     <h3>Total</h3>
                     <p>/ person</p>
                     </Label>
-                    <h1>$0.00</h1>
+                    <h1>${totalAmount}</h1>
                 </ResultsBox>
-                <Reset>RESET</Reset>
+                <Reset onClick={() => {
+                    setBillAmount(0);
+                    setTipAmount(0);
+                }}>RESET</Reset>
             </Content>
         </Wrapper>
     )

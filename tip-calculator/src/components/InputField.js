@@ -1,13 +1,32 @@
 import React from "react";
 import styled from "styled-components";
+import { useState, useEffect } from 'react';
 
-const InputField = ({ label, placeholder }) => {
+
+const InputField = ({ label, placeholder, setBillAmount, setNumberOfPeople }) => {
+    const [ state, setState ] = useState('');
+
+    useEffect(() => {
+        if(label === 'Bill') {
+            setTimeout(() => {
+                setBillAmount(state)
+            }, 500)
+        } else if(label === 'Number of People?') {
+            setTimeout(() => {
+                setNumberOfPeople(state)
+            }, 500)
+        }
+    }, [state, label, setBillAmount, setNumberOfPeople])
     
     return (
         <Wrapper>
             <Content>
                 <p>{label}</p>
-                <input placeholder={placeholder}/>
+                <input 
+                placeholder={placeholder}
+                onChange={event => setState(event.currentTarget.value)}
+                value={state}
+                />
             </Content>
         </Wrapper>
     )

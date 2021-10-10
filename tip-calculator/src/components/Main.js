@@ -8,19 +8,36 @@ import Tips from "./Tips";
 import Results from "./Results";
 
 const Main = () => {
+    const [billAmount, setBillAmount] = useState(0);
+    const [tipPercent, setTipPercent] = useState();
+    const [numberOfPeople, setNumberOfPeople] = useState();
+
     const [tipAmount, setTipAmount] = useState('0.00');
+    const [totalAmount, setTotalAmount] = useState('0.00');
+
+    useEffect(() => {
+        if (billAmount > 0 && tipPercent && numberOfPeople > 0) {
+            let calcTip = billAmount * tipPercent
+            let tipPerPerson = calcTip / numberOfPeople
+            let bill = billAmount
+            let billPerPerson = bill / numberOfPeople
+            let total = billPerPerson + tipPerPerson
+            setTipAmount(tipPerPerson)
+            setTotalAmount(total)
+        }
+    }, [billAmount, numberOfPeople, tipPercent])
 
     return (
         <Wrapper> 
             <Calculator>
                 <Section1>
-                 <InputField label="Bill" placeholder="0"/>
-                 <Tips/>
-                 <InputField label="Number of People?" placeholder="0"/>
+                 <InputField label="Bill" placeholder="0" setBillAmount={setBillAmount} setNumberOfPeople={setNumberOfPeople}/>
+                 <Tips setTipPercent={setTipPercent} />
+                 <InputField label="Number of People?" placeholder="0" setBillAmount={setBillAmount} setNumberOfPeople={setNumberOfPeople}/>
                 </Section1>
 
                 <Section2>
-                    <Results tipAmount={tipAmount}/>
+                    <Results tipAmount={tipAmount} totalAmount={totalAmount} setTipAmount={setTipAmount} setBillAmount={setBillAmount}/>
                 </Section2>
             </Calculator>
         </Wrapper>
