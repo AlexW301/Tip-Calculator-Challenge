@@ -20,7 +20,6 @@ const Wrapper = styled.div``;
 const Content = styled.div`
     display: flex;
     flex-direction: column;
-    padding: 40px 20px;
 
     p {
         align-self: left;
@@ -31,7 +30,7 @@ const Content = styled.div`
     }
 
     input {
-        background-color: #E3E3E3;
+        background-color: #F4FAFA;
         border: none;
         width: 100%;
         height: 40px;

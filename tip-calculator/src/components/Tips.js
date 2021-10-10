@@ -25,7 +25,6 @@ export default Tips;
 const Wrapper = styled.div``;
 
 const Content = styled.div`
-    padding: 0 20px;
 
     p {
         color: var(--medGrey);
@@ -47,6 +46,7 @@ const Tip = styled.button`
     font-size: 1.5rem;
     border-radius: 10px;
     cursor: pointer;
+    font-weight: 900;
 
     :hover {
         background-color: hsl(172, 67%, 45%);

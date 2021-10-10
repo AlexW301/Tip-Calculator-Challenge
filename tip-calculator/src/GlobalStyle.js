@@ -15,7 +15,7 @@ export const GlobalStyle = createGlobalStyle`
 
     * {
         box-sizing: border-box;
-        font-family: 'Abel', sans-serif;
+        font-family: 'Space Mono', monospace;
     }
 
     body {
