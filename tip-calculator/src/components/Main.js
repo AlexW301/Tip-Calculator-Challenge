@@ -55,6 +55,10 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media screen and (max-width: 924px) {
+        align-items: flex-end;
+    }
 `;
 
 const Calculator = styled.div`
@@ -69,6 +73,12 @@ const Calculator = styled.div`
     align-items: center;
     justify-content: center;
     gap: 40px;
+
+    @media screen and (max-width: 924px) {
+        grid-template-columns: 1fr;
+        height: 900px;
+        width: 100%;
+    }
 `;
 
 const Section1 = styled.div`

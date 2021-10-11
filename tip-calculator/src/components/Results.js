@@ -97,4 +97,10 @@ const Reset = styled.button`
     :hover {
         background-color: #c5e4e7;
     }
+
+    @media screen and (max-width: 924px) {
+        position: relative;
+        width: 100%;
+        margin-top: 45px;
+    }
 `;

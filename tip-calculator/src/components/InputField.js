@@ -71,7 +71,7 @@ const Content = styled.div`
         color: #00494d;
 
         :focus {
-            outline: none;
+            outline: 2px solid #26c0ab;
         }
 
         ::placeholder {
