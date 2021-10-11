@@ -2,8 +2,15 @@ import React from "react";
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 
-const Tips = ({ setTipPercent }) => {
+const Tips = ({ setTipPercent, reset, setReset }) => {
     const [state, setState] = useState('');
+
+    useEffect(() => {
+        if(reset) {
+            setState('');
+            setReset(false)
+        }
+    }, [setState, reset, setReset])
 
     useEffect(() => {
         setTimeout(() => {
@@ -17,11 +24,11 @@ const Tips = ({ setTipPercent }) => {
             <Content>
                 <p>Select Tip %</p>
                 <TipsGrid>
-                    <Tip onClick={() => setTipPercent('.05')}>5%</Tip>
-                    <Tip onClick={() => setTipPercent('.10')}>10%</Tip>
-                    <Tip onClick={() => setTipPercent('.15')}>15%</Tip>
-                    <Tip onClick={() => setTipPercent('.18')}>18%</Tip>
-                    <Tip onClick={() => setTipPercent('.20')}>20%</Tip>
+                    <Tip onClick={() => setState('.05')}>5%</Tip>
+                    <Tip onClick={() => setState('.10')}>10%</Tip>
+                    <Tip onClick={() => setState('.15')}>15%</Tip>
+                    <Tip onClick={() => setState('.18')}>18%</Tip>
+                    <Tip onClick={() => setState('.20')}>20%</Tip>
                     <input 
                     placeholder="Custom"
                     onChange={(event) => setState(event.currentTarget.value)}

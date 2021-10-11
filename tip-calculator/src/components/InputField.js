@@ -3,9 +3,16 @@ import styled from "styled-components";
 import { useState, useEffect } from 'react';
 
 
-const InputField = ({ label, placeholder, setBillAmount, setNumberOfPeople }) => {
+const InputField = ({ label, placeholder, setBillAmount, setNumberOfPeople, reset, setReset }) => {
     const [ state, setState ] = useState('');
 
+    useEffect(() => {
+        if (reset) {
+            setState('')
+            setReset(false)
+        }
+    }, [reset, setReset])
+    
     useEffect(() => {
         if(label === 'Bill') {
             setTimeout(() => {

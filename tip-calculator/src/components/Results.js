@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const Results = ({ tipAmount, totalAmount, setBillAmount, setTipAmount }) => {
+const Results = ({ tipAmount, totalAmount, setBillAmount, setTipAmount, setTotalAmount, setTipPercent, setNumberOfPeople, setReset }) => {
 
     return (
         <Wrapper>
@@ -21,8 +21,12 @@ const Results = ({ tipAmount, totalAmount, setBillAmount, setTipAmount }) => {
                     <h1>${totalAmount}</h1>
                 </ResultsBox>
                 <Reset onClick={() => {
+                    setNumberOfPeople(0)
+                    setTipPercent('')
+                    setTotalAmount('0.00');
                     setBillAmount(0);
-                    setTipAmount(0);
+                    setTipAmount('0.00');
+                    setReset(true)
                 }}>RESET</Reset>
             </Content>
         </Wrapper>
@@ -89,4 +93,8 @@ const Reset = styled.button`
     font-size: 1.5rem;
     font-weight: 600;
     cursor: pointer;
+
+    :hover {
+        background-color: #c5e4e7;
+    }
 `;

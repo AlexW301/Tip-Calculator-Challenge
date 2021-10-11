@@ -15,6 +15,8 @@ const Main = () => {
     const [tipAmount, setTipAmount] = useState('0.00');
     const [totalAmount, setTotalAmount] = useState('0.00');
 
+    const [reset, setReset] = useState();
+
     useEffect(() => {
         if (billAmount > 0 && tipPercent && numberOfPeople > 0) {
             let calcTip = billAmount * tipPercent
@@ -22,22 +24,22 @@ const Main = () => {
             let bill = billAmount
             let billPerPerson = bill / numberOfPeople
             let total = billPerPerson + tipPerPerson
-            setTipAmount(tipPerPerson)
-            setTotalAmount(total)
+            setTipAmount(tipPerPerson.toFixed(2))
+            setTotalAmount(total.toFixed(2))
         }
-    }, [billAmount, numberOfPeople, tipPercent])
+    }, [billAmount, numberOfPeople, tipPercent, tipAmount])
 
     return (
         <Wrapper> 
             <Calculator>
                 <Section1>
-                 <InputField label="Bill" placeholder="0" setBillAmount={setBillAmount} setNumberOfPeople={setNumberOfPeople}/>
-                 <Tips setTipPercent={setTipPercent} />
-                 <InputField label="Number of People?" placeholder="0" setBillAmount={setBillAmount} setNumberOfPeople={setNumberOfPeople}/>
+                 <InputField label="Bill" placeholder="0" setBillAmount={setBillAmount} setNumberOfPeople={setNumberOfPeople} setReset={setReset} reset={reset}/>
+                 <Tips setTipPercent={setTipPercent} setReset={setReset} reset={reset}/>
+                 <InputField label="Number of People?" placeholder="0" setBillAmount={setBillAmount} setNumberOfPeople={setNumberOfPeople} setReset={setReset} reset={reset}/>
                 </Section1>
 
                 <Section2>
-                    <Results tipAmount={tipAmount} totalAmount={totalAmount} setTipAmount={setTipAmount} setBillAmount={setBillAmount}/>
+                    <Results tipAmount={tipAmount} totalAmount={totalAmount} setTipAmount={setTipAmount} setTotalAmount={setTotalAmount} setNumberOfPeople={setNumberOfPeople} setBillAmount={setBillAmount} setTipPercent={setTipPercent} setReset={setReset}/>
                 </Section2>
             </Calculator>
         </Wrapper>
