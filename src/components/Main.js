@@ -76,7 +76,7 @@ const Calculator = styled.div`
 
     @media screen and (max-width: 924px) {
         grid-template-columns: 1fr;
-        height: 900px;
+        height: 100%;
         width: 100%;
     }
 `;
